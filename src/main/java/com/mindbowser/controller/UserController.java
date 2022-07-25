@@ -2,6 +2,7 @@ package com.mindbowser.controller;
 
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +32,7 @@ public class UserController {
 		return userServicImpl.registerNewAdmin(user);
 	}
 
-	@PostMapping({"/signup"})
+	@PostMapping({"/register"})
 	public User registerNewUser(@RequestBody User user) {
 		return userServicImpl.registerNewUser(user);
 	}
@@ -42,11 +43,13 @@ public class UserController {
 	}
 
 	@GetMapping({"/forAdmin"})
+	@PreAuthorize("hasRole('Admin')")
 	public String forAdmin() {
 		return "This URL is only accessible for Admin";
 	}
 
 	@GetMapping({"/forUser"})
+	@PreAuthorize("hasAnyRole('User')")
 	public String forUser() {
 		return "This URL is only accessible for User";
 	}

@@ -69,16 +69,16 @@ public class UserServicImpl implements UserService {
 		adminUser.setRole(adminRoles);
 		userRepository.save(adminUser);
 
-		User user = new User();
-		user.setFirstName("Pragati");
-		user.setLastName("Gawade");
-		user.setAddress("Mahableshwar");
-		user.setEmail("pragati@gmail.com");
-		user.setPassword(getEncodedPassword("pragati@123"));
-		Set<Role> userRoles = new HashSet<>();
-		userRoles.add(userRole);
-		user.setRole(userRoles);
-		userRepository.save(user);
+		// User user = new User();
+		// user.setFirstName("Pragati");
+		// user.setLastName("Gawade");
+		// user.setAddress("Mahableshwar");
+		// user.setEmail("pragati@gmail.com");
+		// user.setPassword(getEncodedPassword("pragati@123"));
+		// Set<Role> userRoles = new HashSet<>();
+		// userRoles.add(userRole);
+		// user.setRole(userRoles);
+		// userRepository.save(user);
 
 	}
 
